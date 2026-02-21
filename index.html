@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eaglercraft 1.8.8</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #000000;
+    }
+
+    @keyframes subtlePulse {
+        0%, 100% { box-shadow: 0 10px 15px -3px rgba(109,40,217,0.1), 0 4px 6px -2px rgba(109,40,217,0.05); }
+        50% { box-shadow: 0 15px 25px -5px rgba(109,40,217,0.2), 0 6px 10px -3px rgba(109,40,217,0.1); }
+    }
+
+    .main-container {
+        animation: subtlePulse 8s infinite ease-in-out;
+        background-color: #0f172a;
+    }
+
+    .shape-shadow-purple {
+        filter: drop-shadow(0 8px 6px rgb(139 92 246 / 0.5));
+        transition: filter 500ms ease-out, transform 500ms ease-out;
+    }
+
+    .shape-shadow-purple:hover {
+        filter: drop-shadow(0 15px 12px rgb(139 92 246 / 0.8));
+    }
+</style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 text-white">
+
+<div class="main-container max-w-5xl w-full flex flex-col-reverse md:flex-row items-center justify-between space-y-12 md:space-y-0 md:space-x-12 p-8 sm:p-12 rounded-3xl shadow-2xl shadow-purple-900/50">
+
+    <!-- Left Section: Title & Play Button -->
+    <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left space-y-8">
+        <h1 class="text-5xl sm:text-6xl font-extrabold text-purple-400 tracking-tight leading-tight">
+            EaglerCraft 1.8.8
+        </h1>
+        <p class="text-slate-300 max-w-md text-lg">
+            Official website: <a href="https://eaglercraft.com" target="_blank" class="underline hover:text-purple-300">https://eaglercraft.com</a>
+        </p>
+        <button id="playButton"
+                class="px-12 py-4 text-xl font-bold tracking-widest uppercase bg-purple-600 text-white rounded-full shadow-xl hover:bg-purple-700 hover:shadow-purple-400/50 transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50">
+            Play
+        </button>
+    </div>
+
+    <!-- Right Section: Preview Image -->
+    <div class="relative w-full md:w-1/2 flex justify-center">
+        <!-- Use a direct external URL to ensure the image loads -->
+        <img class="w-full max-w-sm h-auto shape-shadow-purple transform hover:scale-[1.03]"
+             src="https://eaglercraft.gamer.gd/frontimg.png"
+             alt="EaglerCraft 1.8.8 Preview Image">
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const playButton = document.getElementById('playButton');
+    const gameLink = "https://l0adfun.github.io/1.8.8"; // Single version link
+
+    playButton.addEventListener('click', () => {
+        // Play button animation
+        playButton.classList.add('animate-ping');
+
+        setTimeout(() => {
+            playButton.classList.remove('animate-ping');
+
+            // Open the game in a new browser tab
+            window.open(gameLink, "_blank");
+        }, 500); // Match animation duration
+    });
+});
+</script>
+
+</body>
+</html>
